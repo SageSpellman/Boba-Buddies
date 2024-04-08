@@ -6,13 +6,30 @@ var logger = require('morgan');
 var methodOverride = require('method-override');
 
 require('dotenv').config();
+require('./config/database');
+require('./config/passport');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var expenseRouter = require('./routes/expenses');
 
 var app = express();
 
 // view engine setup
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: true
+}));
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
