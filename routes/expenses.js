@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
-
-// Require the controller that exports CRUD functions
-var expensesCtrl = require('../controller/expenses');
+const expensesCtrl = require('../controller/expenses');
+const ensureLoggedIn = require('../config/ensureLoggedIn');
 
 // All actual paths begin with "/exspenses"
 // GET /todos
