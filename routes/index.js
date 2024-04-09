@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-const passport = require('passport');
+var passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('Home', { title: 'Boba Buddies' });
 });
 
 // Google OAuth login route
