@@ -1,15 +1,4 @@
 const Budget = require('../models/budget');
-
-
-module.exports = {
-    index,
-    new: newBudget,
-    show,
-    create,
-    update,
-    delete: deleteBudget,
-    edit
-  };
   
 // Index: Get all budgets
 const index = async (req, res) => {
@@ -87,4 +76,14 @@ const index = async (req, res) => {
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
+  };
+
+  module.exports = {
+    index,
+    new: newBudget,
+    show,
+    create,
+    update,
+    delete: deleteBudget,
+    edit
   };

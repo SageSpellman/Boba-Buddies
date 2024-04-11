@@ -1,15 +1,5 @@
 const Paycheck = require('../models/paycheck');
 
-module.exports = {
-    index,
-    show,
-    new: newPaycheck,
-    create,
-    edit,
-    update,
-    delete: deletePaycheck
-  };
-
 // Index: Get all paychecks
 const index = async (req, res) => {
   try {
@@ -87,3 +77,13 @@ const deletePaycheck = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+module.exports = {
+    index,
+    show,
+    new: newPaycheck,
+    create,
+    edit,
+    update,
+    delete: deletePaycheck
+  };

@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const paycheckCtrl = require('../controllers/paycheck');
+const paycheckCtrl = require('../controller/paychecks');
 
 // Index: Get all paychecks
-router.get('/paychecks', paycheckController.index);
+router.get('/paychecks', paycheckCtrl.index);
 
 // Show: Get a specific paycheck by ID
 router.get('/paychecks/:id', paycheckCtrl.show);
 
 // New: Render form for creating a new paycheck
-router.get('/paychecks/new', paycheckCtrl.newPaycheck);
+router.get('/paychecks/new', paycheckCtrl.new);
 
 // Create: Add a new paycheck
 router.post('/paychecks', paycheckCtrl.create);
@@ -21,6 +21,6 @@ router.get('/paychecks/:id/edit', paycheckCtrl.edit);
 router.put('/paychecks/:id', paycheckCtrl.update);
 
 // Delete: Delete a paycheck by ID
-router.delete('/paychecks/:id', paycheckCtrl.deletePaycheck);
+router.delete('/paychecks/:id', paycheckCtrl.delete);
 
 module.exports = router;
