@@ -18,20 +18,15 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/',
-    failureRedirect: '/'
+    successRedirect: '/budgets',
+    failureRedirect: '/budgets'
   }
 ));
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('Home', { title: 'Boba Buddies' });
-});
 
 // OAuth logout route
 router.get('/logout', function(req, res){
   req.logout(function() {
-    res.redirect('/');
+    res.redirect('/budget');
   });
 });
 
