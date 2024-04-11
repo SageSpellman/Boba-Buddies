@@ -1,7 +1,9 @@
 const passport = require('passport');
+
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const User = require('../models/user');
 // new code below
+
 passport.use(new GoogleStrategy(
     // Configuration object
     {
@@ -35,11 +37,12 @@ passport.use(new GoogleStrategy(
   ));
 
   // Add to bottom of config/passport.js
-passport.serializeUser(function(user, cb) {
+  passport.serializeUser(function(user, cb) {
     cb(null, user._id);
   });
 
   // Add to bottom of config/passport.js
-passport.serializeUser(function(user, cb) {
-    cb(null, user._id);
+passport.deserializeUser(async function(userId, cb) {
+    // It's nice to be able to use await in-line!
+    cb(null, await User.findById(userId));
   });
