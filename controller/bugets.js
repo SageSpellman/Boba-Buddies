@@ -4,7 +4,7 @@ const Budget = require('../models/budget');
 const index = async (req, res) => {
     try {
       const budgets = await Budget.find();
-      res.render('budgets/index', { budgets });
+      res.render('budgets/index', { title: "All Budgets", budgets });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }

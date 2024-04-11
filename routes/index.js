@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 const passport = require('passport');
 
+router.get('/', function(req, res) {
+  res.render('index', {title: "Homepage"})
+})
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate(
   // Which passport strategy is being used?
