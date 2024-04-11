@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+<section id="show-paycheck">
+  <div>Title: </div>
+  <div><%= paycheck.title %></div>
+  <div>Amount: </div>
+  <div>$<%= paycheck.amount %></div>
+  <div>Date: </div>
+  <div><%= paycheck.date.toLocaleDateString() %></div>
+</section>
+
+<form id="edit-paycheck-form" action="/paychecks/<%= paycheck._id %>/edit" method="GET">
+  <button type="submit">Edit</button>
+</form>
+
+<form id="delete-paycheck-form" action="/paychecks/<%= paycheck._id %>/delete" method="POST">
+  <button type="submit">Delete</button>
+</form>
+
+<%- include('../partials/footer') %>
