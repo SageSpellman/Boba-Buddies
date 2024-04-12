@@ -31,6 +31,9 @@ The app provides a seamless experience for managing finances, helping users stay
  - MongoDB
  - Mongoose
  - Bootstrap
+ - Express.js
+ - Node.js
+ - React
 
 # Technologies Used
   ![Markdown](https://img.shields.io/badge/-Markdown-05122A?style=flat&logo=markdown)
@@ -38,6 +41,7 @@ The app provides a seamless experience for managing finances, helping users stay
   ![Github](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)
   ![VSCode](https://img.shields.io/badge/-VS_Code-05122A?style=flat&logo=visualstudio)
   ![Vim](https://img.shields.io/badge/-Vim-05122A?style=flat&logo=vim)
+  
 
 
 # Next Steps
