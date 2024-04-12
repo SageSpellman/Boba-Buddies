@@ -108,3 +108,29 @@ button {
 button:hover {
   background-color: #27ae60; /* Change the background color on hover */
 }
+
+li{
+  display: block;
+  margin-left: -10px;
+}
+
+li {
+  display: block;
+  position: relative;
+}
+
+li:not(:last-child) {
+  margin-bottom: 16px;
+}
+ li:before {
+  content: "";
+  position: absolute;
+  top: 1.2em;
+  left: -30px;
+  margin-top: -.9em;
+  background: #175a2f;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+}
+
