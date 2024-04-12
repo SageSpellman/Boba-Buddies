@@ -13,8 +13,6 @@ const User = require('../models/user');
     },
     email: String,
     avatar: String
-  }, {
-    timestamps: true
   });
 
  module.exports = mongoose.model('User', userSchema);

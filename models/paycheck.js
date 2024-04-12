@@ -14,8 +14,6 @@ const paycheckSchema = new Schema({
       type: Number,
       required: true
     }
-  }, {
-    timestamps: true
   });
 
   module.exports = mongoose.model('Paycheck', paycheckSchema);
