@@ -4,7 +4,7 @@ const Paycheck = require('../models/paycheck');
 const index = async (req, res) => {
   try {
     const paychecks = await Paycheck.find();
-    res.render('paychecks/index', { paychecks });
+    res.render('paychecks/index', { title: "All paychecks", paychecks });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -25,7 +25,7 @@ const show = async (req, res) => {
 
 // New: Render form for creating a new paycheck
 const newPaycheck = (req, res) => {
-  res.render('paychecks/new');
+  res.render('paychecks/new', {title:"add new paycheck", errormsg: ""});
 };
 
 // Create: Add a new paycheck
@@ -46,7 +46,7 @@ const edit = async (req, res) => {
     if (!paycheck) {
       return res.status(404).json({ message: 'Paycheck not found' });
     }
-    res.render('paychecks/edit', { paycheck });
+    res.render('paychecks/edit', {title:"Update Paycheck", paycheck });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

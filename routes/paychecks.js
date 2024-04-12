@@ -5,11 +5,11 @@ const paycheckCtrl = require('../controller/paychecks');
 // Index: Get all paychecks
 router.get('/paychecks', paycheckCtrl.index);
 
-// Show: Get a specific paycheck by ID
-router.get('/paychecks/:id', paycheckCtrl.show);
-
 // New: Render form for creating a new paycheck
 router.get('/paychecks/new', paycheckCtrl.new);
+
+// Show: Get a specific paycheck by ID
+router.get('/paychecks/:id', paycheckCtrl.show);
 
 // Create: Add a new paycheck
 router.post('/paychecks', paycheckCtrl.create);

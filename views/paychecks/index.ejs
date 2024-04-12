@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+<div>
+<% paychecks.forEach(paycheck => { %>
+    
+    <li>
+        <P><%= paycheck.memo %> - <%= paycheck.amount %> - <%= paycheck.date %></p>
+        <form action="/paychecks/<%= paycheck._id %>?_method=DELETE" method="POST" style="display: inline;">
+            <button type="submit">Delete</button>
+        </form>
+
+        <a href="/paychecks/<%= paycheck._id %>/edit">Updated</a>
+    </li>
+<% }); %>
+</div>
+<%- include('../partials/footer') %>

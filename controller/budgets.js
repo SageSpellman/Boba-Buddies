@@ -3,7 +3,7 @@ const Budget = require('../models/budget');
 // Index: Get all budgets
 const index = async (req, res) => {
     try {
-      const budgets = await Budget.find();
+      const budgets = await Budget.find({}); console.log('budgets', budgets)
       res.render('budgets/index', { title: "All Budgets", budgets });
     } catch (error) {
       res.status(500).json({ error: error.message });
@@ -17,6 +17,7 @@ const index = async (req, res) => {
       if (!budget) {
         return res.status(404).json({ message: 'Budget not found' });
       }
+      console.log('budget', budget )
       res.render('budgets/show', { budget });
     } catch (error) {
       res.status(500).json({ error: error.message });
@@ -25,7 +26,11 @@ const index = async (req, res) => {
   
   // New: Render form for creating a new budget
   const newBudget = (req, res) => {
-    res.render('budgets/new');
+    res.render('budgets/new', {title:"add new budget", errormsg: ""});
+  };
+
+  const Homepage = (req, res) => {
+    res.redirect('/budgets');
   };
   
   // Create: Add a new budget
@@ -39,19 +44,19 @@ const index = async (req, res) => {
     }
   };
   
-  // Edit: Render form for editing an existing budget
-  const edit = async (req, res) => {
-    try {
-      const budget = await Budget.findById(req.params.id);
-      if (!budget) {
-        return res.status(404).json({ message: 'Budget not found' });
-      }
-      res.render('budgets/edit', { budget });
-    } catch (error) {
-      res.status(500).json({ error: error.message });
+// Edit: Render form for editing an existing budget
+const edit = async (req, res) => {
+  try {
+    const budget = await Budget.findById(req.params.id);
+    if (!budget) {
+      return res.status(404).json({ message: 'Budget not found' });
     }
-  };
-  
+    res.render('budgets/edit', {title:"Update Budget", budget });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
   // Update: Update an existing budget by ID
   const update = async (req, res) => {
     try {
@@ -67,7 +72,9 @@ const index = async (req, res) => {
   
   // Delete: Delete a budget by ID
   const deleteBudget = async (req, res) => {
+    console.log('delete budget is running');
     try {
+      console.log(req.params.id)
       const budget = await Budget.findByIdAndDelete(req.params.id);
       if (!budget) {
         return res.status(404).json({ message: 'Budget not found' });
@@ -85,5 +92,5 @@ const index = async (req, res) => {
     create,
     update,
     delete: deleteBudget,
-    edit
+   edit
   };

@@ -22,14 +22,14 @@ router.get('/oauth2callback', passport.authenticate(
   'google',
   {
     successRedirect: '/budgets',
-    failureRedirect: '/budgets'
+    failureRedirect: '/'
   }
 ));
 
 // OAuth logout route
 router.get('/logout', function(req, res){
   req.logout(function() {
-    res.redirect('/budget');
+    res.redirect('/');
   });
 });
 

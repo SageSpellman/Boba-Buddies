@@ -11,12 +11,6 @@
   <div><%= budget.date.toLocaleDateString() %></div>
 </section>
 
-<form id="edit-budget-form" action="/budgets/<%= budget._id %>/edit" method="GET">
-  <button type="submit">Edit</button>
-</form>
-
-<form id="delete-budget-form" action="/budgets/<%= budget._id %>/delete" method="POST">
-  <button type="submit">Delete</button>
-</form>
+<P><%= budget.name %> - <%= budget.amount %> - <%= budget.category %></p>
 
 <%- include('../partials/footer') %>
